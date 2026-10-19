@@ -1,0 +1,8 @@
+---
+- name: Verify ansimin can run a playbook
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Show the selected inventory host without changing anything
+      ansible.builtin.debug:
+        msg: "Ansimin reached the playbook for {{ inventory_hostname }}. No system changes were requested."

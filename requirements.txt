@@ -1,0 +1,2 @@
+# Or install the distribution's python3-cryptography package with apt.
+cryptography>=41.0

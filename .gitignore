@@ -1,0 +1,38 @@
+# Personal Ansible workspace: never publish these files.
+/inventory.ini
+/ansible.cfg
+/updateAll.yml
+/deploy/ansimin.service
+/host_vars/
+/group_vars/
+/roles/
+/collections/
+/.vault_pass
+/.vault-password*
+
+# Runtime state, credentials, certificates and backups
+/state/
+/.state/
+/backups/
+/secrets/
+credential.json
+initial-password
+notifications.json
+*.sqlite3*
+*.pem
+*.key
+*.bak
+*.tar.gz
+.env
+.env.*
+!.env.example
+
+# Python and local tools
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+.idea/
+.vscode/

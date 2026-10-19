@@ -1,0 +1,23 @@
+[Unit]
+Description=Ansimin Ansible administration
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+# Replace USERNAME and every /home/USERNAME path before installing.
+User=USERNAME
+Group=USERNAME
+WorkingDirectory=/home/USERNAME/ansible
+ExecStart=/usr/bin/python3 /opt/ansimin/ansimin.py --workspace /home/USERNAME/ansible --state /home/USERNAME/.local/state/ansimin --ansible /usr/bin/ansible-inventory
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=ANSIBLE_LOCAL_TEMP=/home/USERNAME/.local/state/ansimin/tmp
+Restart=on-failure
+RestartSec=5
+UMask=0077
+LimitCORE=0
+# Controller-side and local-connection tasks need the service user's usual
+# filesystem, SSH and sudo access. Review privileges before adding hardening.
+
+[Install]
+WantedBy=multi-user.target
